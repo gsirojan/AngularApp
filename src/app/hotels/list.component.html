@@ -1,0 +1,15 @@
+<h1>Hotels</h1>
+
+<span (click)="addNewHotel()" class="btn btn-primary btn-xs"><i class="fas fa-plus"></i>Add Hotel</span>
+<br/><br/>
+
+<ag-grid-angular
+    #agGrid
+    style="height: 500px;"
+    class="ag-theme-alpine"
+    [pagination]="true"
+    [rowData]="hotelService.hotels"
+    [columnDefs]="columnDefs"
+    rowSelection="multiple"
+    >
+</ag-grid-angular>

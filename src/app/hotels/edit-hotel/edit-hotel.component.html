@@ -1,0 +1,58 @@
+<div role="document">
+    <div>
+      <form class="form-horizontal" id="add-form" [formGroup]="editHotelForm" (ngSubmit)="onHotelEditFormSubmit()">
+        <input type="hidden" class="form-control" formControlName="HotelId" />
+        <div class="modal-header">
+          <div class="col-sm-11">
+            <h4 class="modal-title" id="add-modal-label">Edit Hotel</h4>
+          </div>
+         <div class="col-sm-1">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onClose()"><span aria-hidden="true">&times;</span></button>
+         </div>
+        </div>
+        <div class="modal-body">
+          
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Hotel Name</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" formControlName="HotelName" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-12 control-label">Country</label>
+            <div class="col-sm-12">
+              <select formControlName="Country" class="form-control" (change)="BindCity($event.target.value)">
+                <option [value]="null">Select Country</option>
+                <option *ngFor="let item of countries" [value]="item.CountryID">{{item.CountryName}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-12 control-label">City</label>
+            <div class="col-sm-12">
+              <select formControlName="City" class="form-control">
+                <option [value]="null">Select City</option>
+                <option *ngFor="let item of cities" [value]="item.CityID">{{item.CityName}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-12 control-label">Description</label>
+            <div class="col-sm-12">
+              <textarea class="form-control" formControlName="Description"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-12 control-label">Adddress</label>
+            <div class="col-sm-12">
+              <textarea class="form-control" formControlName="Adddress"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="onClose()">Close</button>
+          <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
